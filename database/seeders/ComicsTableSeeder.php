@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Comics;
+use App\Models\Comic;
 
 class ComicsTableSeeder extends Seeder
 {
@@ -15,6 +15,6 @@ class ComicsTableSeeder extends Seeder
      */
     public function run()
     {
-        Comics :: factory() -> count(50) -> create();
+        Comic :: factory() -> count(50) -> create();
     }
 }
