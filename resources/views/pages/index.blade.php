@@ -13,7 +13,9 @@
                 Price: €{{$comic -> price}}
                 </a>
                 <a class="mx-5" href="{{route('comics.edit', $comic -> id)}}">
-                    <i class="fa-solid fa-pencil"></i>
+                    <button class="btn btn-primary">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
                 </a>
                 <form 
                     class="d-inline-block"
@@ -22,7 +24,7 @@
 
                     @csrf
                     @method('DELETE')
-                    <input onclick="return confirm('Confermare?')" type="submit" value="Delete">
+                    <input class="btn btn-danger" onclick="return confirm('Confermare?')" type="submit" value="Delete">
                 </form>
             </li> 
         @endforeach
