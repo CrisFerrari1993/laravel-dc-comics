@@ -74,9 +74,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) 
     {
-        //
+        $comics = Comic :: find($id);
+        return view('pages.edit', compact('comics'));
     }
 
     /**
@@ -88,7 +89,23 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comics = Comic :: find($id);
+        $data = $request -> all();
+
+
+        $comics -> title = $data['title'];
+        $comics -> editor = $data['editor'];
+        $comics -> author = $data['author'];
+        $comics -> designer = $data['designer'];
+        $comics -> genre = $data['genre'];
+        $comics -> price = $data['price'];
+        $comics -> pubblication_year = $data['pubblication_year'];
+        $comics -> quantity_in_store = $data['quantity_in_store'];
+        $comics -> description = $data['description'];
+
+        $comics -> save();
+
+        return redirect() ->route('comics.show', $comics -> id);
     }
 
     /**
@@ -99,6 +116,8 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comics = Comic :: find($id);
+        $comics -> delete();
+        return redirect() -> route('comics.index');
     }
 }
