@@ -13,5 +13,8 @@
         <li>Pubblication Year: {{$comics -> pubblication_year}}</li>
         <li>Quantity in store: {{$comics -> quantity_in_store}}</li>
         <li>Description: {{$comics -> description}}</li>
+        <button class="btn btn-primary">
+            <a href="/">Back to Home</a>
+        </button>
     </ul>
 @endsection
