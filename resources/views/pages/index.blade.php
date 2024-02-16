@@ -12,6 +12,18 @@
                 Genre: {{$comic -> genre}} <br>
                 Price: €{{$comic -> price}}
                 </a>
+                <a class="mx-5" href="{{route('comics.edit', $comic -> id)}}">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                <form 
+                    class="d-inline-block"
+                    action="{{route('comics.destroy', $comic -> id)}}"
+                    method="POST">
+
+                    @csrf
+                    @method('DELETE')
+                    <input onclick="return confirm('Confermare?')" type="submit" value="Delete">
+                </form>
             </li> 
         @endforeach
     </ul>    
